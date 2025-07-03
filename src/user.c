@@ -27,8 +27,8 @@ int add_user(const char *username, const char *password, uint16_t uid, uint16_t 
 
     // 检查UID/GID冲突
     for (int i = 0; i < MAX_USERS; i++) {
-        if (fs_users[i].is_active && 
-           (fs_users[i].uid == uid || fs_users[i].gid == gid)) {
+        if (fs.users[i].is_active && 
+           (fs.users[i].uid == uid || fs.users[i].gid == gid)) {
             return -2; // UID/GID冲突
         }
     }
